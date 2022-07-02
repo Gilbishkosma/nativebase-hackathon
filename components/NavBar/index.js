@@ -8,7 +8,7 @@ function NavBar() {
     <Box bg="#50BFC3" pt="5"/>
     <StatusBar bg="#50BFC3" barStyle="light-content" />
       
-      <Box safeAreaTop bg="#6200ee" />
+      <Box bg="#6200ee" />
       <HStack
         bg="#50BFC3"
         _dark={{

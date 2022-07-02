@@ -5,6 +5,7 @@ import ToggleDarkMode from "../ToggleDarkMode";
 function NavBar() {
   return (
     <>
+    <Box bg="#50BFC3" pt="5"/>
     <StatusBar bg="#50BFC3" barStyle="light-content" />
       
       <Box safeAreaTop bg="#6200ee" />

@@ -5,11 +5,10 @@ import PlayerNameInput from "./PlayerNameInput";
 
 const AddPlayerNamesScreen = ({navigation}) => {
     const {state} = usePlayer();
-
+    console.log(state)
     var isDisabled = false;
-
-    for (var player in state.players) {
-        if (state.players[player].name.length === 0) {
+    for (var player in state?.players) {
+        if (state?.players[player]?.name?.length === 0) {
             isDisabled = true;
             break;
         }

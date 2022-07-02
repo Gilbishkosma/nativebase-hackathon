@@ -14,7 +14,7 @@ const PlayerNameInput = ({playerKey}) => {
     return <Center p="2" width="100%" height="100%">
         <Image size={'md'} borderRadius={100} source={{ uri: img }} alt="Profile Pic" />
         <Text fontWeight={500} mb="2">Enter the {playerKey} name</Text> 
-        <Input mx="3" placeholder="Enter name here" onChange={(event) =>  handleChange(event.target.value)} value={name} w="80%" />
+        <Input mx="3" placeholder="Enter name here" onChangeText={(text) =>  handleChange(text)} value={name} w="80%" />
     </Center>
 }
 

@@ -1,23 +1,22 @@
 import * as React from 'react'
-
 const PlayerContext = React.createContext()
 
 
-const defaultPlayerState = {
+const defaultPlayerState =  ({
     name:'',
     score:'',
     hasLost:false,
     lifeCount:3
-}
+})
 
 // if playerCount is 2
 const twoPlayers = {
-    player1:defaultPlayerState,
-    player2:defaultPlayerState
+    player1: {...defaultPlayerState,img:"https://doodleipsum.com/100x100/avatar?n=1"},
+    player2: {...defaultPlayerState,img:"https://doodleipsum.com/100x100/avatar?n=2"}
 }
 
 // if playerCount is 3
-const threePlayers = {...twoPlayers,player3:defaultPlayerState}
+const threePlayers = {...twoPlayers,player3:{...defaultPlayerState,img:"https://doodleipsum.com/100x100/avatar?n=3"}}
 
 function PlayerReducer(state, action) {
   const {type,payload} = action;
@@ -27,23 +26,23 @@ function PlayerReducer(state, action) {
       return {...state,playerCount,players: playerCount === 2 ? twoPlayers : threePlayers }
     }
     case 'addName': {
-      const {player,name} = payload 
-      const updatedPlayer = {...state.players,[player]:{...state.players[player],name}} 
+      const {playerKey,name} = payload 
+      const updatedPlayer = {...state.players,[playerKey]:{...state.players[playerKey],name}} 
       return {...state,players:updatedPlayer}
     }
     case 'updateScore':{
-      const {player,score} = payload 
-      const updatedPlayer = {...state.players,[player]:{...state.players[player],score}} 
+      const {playerKey,score} = payload 
+      const updatedPlayer = {...state.players,[playerKey]:{...state.players[playerKey],score}} 
       return {...state,players:updatedPlayer}
     }
     case 'updatePlayingStatus':{
-        const {player} = payload 
-        const updatedPlayer = {...state.players,[player]:{...state.players[player],hasLost:true}} 
+        const {playerKey} = payload 
+        const updatedPlayer = {...state.players,[playerKey]:{...state.players[playerKey],hasLost:true}} 
         return {...state,players:updatedPlayer}
     }
     case 'updateLifeCount':{
-        const {player,lifeCount} = payload 
-        const updatedPlayer = {...state.players,[player]:{...state.players[player],lifeCount}} 
+        const {playerKey,lifeCount} = payload 
+        const updatedPlayer = {...state.players,[playerKey]:{...state.players[playerKey],lifeCount}} 
         return {...state,players:updatedPlayer}
     }
     default: {
@@ -54,7 +53,7 @@ function PlayerReducer(state, action) {
 
 const initialState = {
     playerCount:2,
-    players:twoPlayers
+    players:threePlayers,
 }
 
 function PlayerProvider({children}) {

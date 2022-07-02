@@ -12,8 +12,15 @@ import {
 } from "native-base";
 import NativeBaseIcon from "../../NativeBaseIcon";
 import NavBar from "../../NavBar";
+import { usePlayer } from "../../../contexts/PlayerContext";
+import { actionCreator } from "../../../utils";
 
 function SelectPlayerScreen({ navigation }) {
+  const { state, dispatch } = usePlayer();
+  console.log(state);
+  const handleValueChange = (value) => {
+    dispatch(actionCreator("changePlayerCount", { playerCount: value }));
+  };
   return (
     <>
       <NavBar />
@@ -41,10 +48,12 @@ function SelectPlayerScreen({ navigation }) {
             _dark={{
               bg: "coolGray.800",
             }}
-            defaultValue="2"
+            defaultValue={2}
+            selectedValue={state.playerCount}
+            onValueChange={handleValueChange}
           >
-            <Select.Item shadow={2} label="2" value="2" />
-            <Select.Item shadow={2} label="3" value="3" />
+            <Select.Item shadow={2} label="2" value={2} />
+            <Select.Item shadow={2} label="3" value={3} />
           </Select>
           <LinkButton
             title="Next"

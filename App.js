@@ -7,6 +7,7 @@ import {
 import { NavigationContainer } from '@react-navigation/native';
 import { AddPlayerNamesScreen, SelectPlayerScreen } from "./components/AppScreens";
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { PlayerProvider } from "./contexts/PlayerContext";
 
 // Define the config
 const config = {
@@ -26,12 +27,14 @@ const Stack = createNativeStackNavigator();
 export default function App() {
   return (
     <NativeBaseProvider theme={theme}>
+      <PlayerProvider>
       <NavigationContainer>
         <Stack.Navigator>
           <Stack.Screen name="select_player" component={SelectPlayerScreen} />
           <Stack.Screen name="add_name" component={AddPlayerNamesScreen} />
         </Stack.Navigator>
       </NavigationContainer>
+      </PlayerProvider>
     </NativeBaseProvider>
   );
 }

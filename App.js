@@ -1,4 +1,6 @@
 import React from "react";
+import { NativeBaseProvider, extendTheme, theme as nbTheme } from "native-base";
+import { NavigationContainer } from "@react-navigation/native";
 import {
   NativeBaseProvider,
   extendTheme,
@@ -30,7 +32,11 @@ export default function App() {
     <NativeBaseProvider theme={theme}>
       <PlayerProvider>
       <NavigationContainer>
-        <Stack.Navigator>
+        <Stack.Navigator
+          screenOptions={{
+            headerShown: false,
+          }}
+        >
           <Stack.Screen name="select_player" component={SelectPlayerScreen} />
           <Stack.Screen name="add_name" component={AddPlayerNamesScreen} />
           <Stack.Screen name="game_screen" component={GameScreen} />
@@ -40,5 +46,3 @@ export default function App() {
     </NativeBaseProvider>
   );
 }
-
-

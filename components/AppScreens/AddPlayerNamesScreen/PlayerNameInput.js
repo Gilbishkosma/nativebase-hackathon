@@ -3,6 +3,7 @@ import {Box,Center,Text,Image,Input} from 'native-base'
 import {usePlayer} from '../../../contexts/PlayerContext'
 import { actionCreator } from '../../../utils'
 
+
 const PlayerNameInput = ({playerKey}) => {
     const {state,dispatch} = usePlayer()
     const {name,img} = state.players[playerKey]

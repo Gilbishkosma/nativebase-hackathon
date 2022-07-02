@@ -1,5 +1,6 @@
 import React from "react";
-import { NativeBaseProvider, extendTheme, theme as nbTheme } from "native-base";
+import {StatusBar} from 'react-native';
+import { NativeBaseProvider, extendTheme, theme as nbTheme, Header } from "native-base";
 import { NavigationContainer } from "@react-navigation/native";
 
 import {

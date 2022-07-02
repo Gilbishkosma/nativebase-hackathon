@@ -1,11 +1,12 @@
 import React from "react";
-import { HStack, StatusBar, Box, Text } from "native-base";
+import { HStack, Box, Text, StatusBar } from "native-base";
 import ToggleDarkMode from "../ToggleDarkMode";
 
 function NavBar() {
   return (
     <>
-      <StatusBar bg="#50BFC3" barStyle="light-content" />
+    <StatusBar bg="#50BFC3" barStyle="light-content" />
+      
       <Box safeAreaTop bg="#6200ee" />
       <HStack
         bg="#50BFC3"

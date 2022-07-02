@@ -2,6 +2,7 @@ import { Text, Box, Button,VStack, Spacer,ScrollView } from "native-base"
 import { usePlayer } from "../../../contexts/PlayerContext"
 import { actionCreator } from "../../../utils";
 import PlayerNameInput from "./PlayerNameInput";
+import NavBar from '../../NavBar'
 
 const AddPlayerNamesScreen = ({navigation}) => {
     const {state} = usePlayer();
@@ -14,7 +15,9 @@ const AddPlayerNamesScreen = ({navigation}) => {
         }
     }
 
-    return <ScrollView
+    return <>
+        <NavBar />
+        <ScrollView
             style={{ flex: '0 0 100%' }}
             contentContainerStyle={{
                 alignItems: 'center',
@@ -35,6 +38,7 @@ const AddPlayerNamesScreen = ({navigation}) => {
             </VStack>
             
         </ScrollView>
+        </>
 }
 
 export default AddPlayerNamesScreen

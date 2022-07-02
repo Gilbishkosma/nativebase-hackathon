@@ -19,7 +19,7 @@ function SelectPlayerScreen({ navigation }) {
   const { state, dispatch } = usePlayer();
   console.log(state);
   const handleValueChange = (value) => {
-    dispatch(actionCreator("changePlayerCount", { playerCount: value }));
+    dispatch(actionCreator("changePlayerCount", { playerCount: parseInt(value) }));
   };
   return (
     <>
@@ -48,8 +48,9 @@ function SelectPlayerScreen({ navigation }) {
             _dark={{
               bg: "coolGray.800",
             }}
-            defaultValue={2}
-            selectedValue={state.playerCount}
+            minWidth="200"
+            defaultValue={state?.playerCount ? state.playerCount : 2 }
+            selectedValue={state?.playerCount ? state.playerCount : 2 }
             onValueChange={handleValueChange}
           >
             <Select.Item shadow={2} label="2" value={2} />

@@ -1,3 +1,4 @@
+import React from 'react';
 import { Text, Box, Button,VStack, Spacer,ScrollView } from "native-base"
 import { usePlayer } from "../../../contexts/PlayerContext"
 import { actionCreator } from "../../../utils";
@@ -5,8 +6,7 @@ import PlayerNameInput from "./PlayerNameInput";
 import NavBar from '../../NavBar'
 
 const AddPlayerNamesScreen = ({navigation}) => {
-    const {state} = usePlayer();
-    console.log(state)
+    const {state,dispatch} = usePlayer();
     var isDisabled = false;
     for (var player in state?.players) {
         if (state?.players[player]?.name?.length === 0) {
@@ -14,6 +14,11 @@ const AddPlayerNamesScreen = ({navigation}) => {
             break;
         }
     }
+
+    const playerInputs = React.useMemo(() => {
+        const players = state.playerCount == 2 ? ['player1','player2'] : ['player1','player2','player3']
+        return players
+    },[state.playerCount])
 
     return <>
         <NavBar />
@@ -29,11 +34,11 @@ const AddPlayerNamesScreen = ({navigation}) => {
               }}
         >
             <VStack alignItems="center" style={{height: '100%'}}>
-            {Object.keys(state.players).map(key => (
-            <Box key={key} flex="0.5" style={{width:'100%'}} maxWidth={"sm"} bg="white" mt="2">
-                <PlayerNameInput playerKey={key}  />
-            </Box>)
-            )}
+            {
+            playerInputs.map((key,index) => (
+                <PlayerNameInput playerKey={playerInputs[index]} dispatch={dispatch} name={state.players[playerInputs[index]].name} img={state.players[playerInputs[index]].img} key={key}  />
+            ))
+            }
             <Button mt="2" mb="5" disabled={isDisabled} bg={isDisabled ? 'coolGray.300' : 'primary.600'} onPress={() => navigation.navigate('game_screen')}>Start</Button>
             </VStack>
             

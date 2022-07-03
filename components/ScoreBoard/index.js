@@ -1,4 +1,4 @@
-import { Modal, Button, Image, Center, Text, VStack } from "native-base";
+import { Modal, Button, Image, Center, Text, HStack } from "native-base";
 import React, { useState } from "react";
 
 const ScoreBoard = () => {
@@ -20,20 +20,20 @@ const ScoreBoard = () => {
                 alt="Alternate Text"
               />
               <Text pt="4" bold>
-                1. Deepak Won
+                Hurray ! Deepak WON 🥳
               </Text>
             </Center>
           </Modal.Header>
           <Modal.Body>
-            <VStack alignItems="center" space={4}>
-              <Center w="64" h="10" bg="#D9D9D9" rounded="md" shadow={3}>
-                <Text bold>2. Gylbys</Text>
+            <HStack space={3} justifyContent="center">
+              <Center w="20" rounded="md" shadow={3}>
+                <Button> Replay ? </Button>
               </Center>
-              <Center w="64" h="10" bg="#D9D9D9" rounded="md" shadow={3}>
-                <Text bold>3. Mang</Text>
+              <Center w="20" rounded="md" shadow={3}>
+                <Button> Restart !</Button>
               </Center>
               <Text> </Text>
-            </VStack>
+            </HStack>
           </Modal.Body>
         </Modal.Content>
       </Modal>

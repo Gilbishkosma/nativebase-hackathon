@@ -7,6 +7,7 @@ const PlayerNameInput = ({ playerKey }) => {
   const { state, dispatch } = usePlayer();
   const { name, img } = state.players[playerKey];
 
+
   const handleChange = (value) => {
     dispatch(actionCreator("addName", { name: value, playerKey }));
   };
@@ -33,5 +34,6 @@ const PlayerNameInput = ({ playerKey }) => {
     </Center>
   );
 };
+
 
 export default React.memo(PlayerNameInput);

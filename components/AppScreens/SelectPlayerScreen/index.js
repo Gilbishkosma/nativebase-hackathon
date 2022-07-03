@@ -25,12 +25,14 @@ function SelectPlayerScreen({ navigation }) {
     <>
       <NavBar />
       <Center
+        safeAreaBottom
+        
         _dark={{ bg: "blueGray.900" }}
         _light={{ bg: "blueGray.50" }}
         px={4}
         flex={1}
       >
-        <Stack space={5} alignItems="center">
+        <Stack space={5} alignItems="center" justifyContent="center" >
           <Heading size="lg">Welcome to Word Fight! </Heading>
           <NativeBaseIcon />
 
@@ -60,9 +62,8 @@ function SelectPlayerScreen({ navigation }) {
             title="Next"
             onClick={() => navigation.navigate("add_name")}
           />
-          <Spacer />
-          <Box>
-            <Text> Team Octo </Text>
+          <Box mt="auto">
+            <Text fontWeight="800" color="#737373"> Team Octo </Text>
           </Box>
         </Stack>
       </Center>

@@ -2808,6 +2808,11 @@ chalk@^4.0.0, chalk@^4.1.0, chalk@^4.1.2:
     ansi-styles "^4.1.0"
     supports-color "^7.1.0"
 
+check-if-word@^1.2.1:
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/check-if-word/-/check-if-word-1.2.1.tgz#60a9cb8ed99f0321e7abddb05201195b80094b19"
+  integrity sha512-FrB/d+r+ITgMjxGfIS1tE7OlfI2bNSARSCNyC6el23ESDP1ugP1MJPts0ecYawiO6xPE2msJhAYtqBgAMD8oPw==
+
 ci-info@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/ci-info/-/ci-info-2.0.0.tgz#67a9e964be31a51e15e5010d58e6f12834002f46"

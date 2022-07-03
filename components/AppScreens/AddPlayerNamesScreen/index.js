@@ -45,7 +45,6 @@ const AddPlayerNamesScreen = ({navigation}) => {
             }
             <Button mt="2" mb="5" disabled={isDisabled} bg={isDisabled ? 'coolGray.300' : 'primary.600'} onPress={() => navigation.navigate('game_screen')}>Start</Button>
             </VStack>
-            
         </ScrollView>
         </>
 }

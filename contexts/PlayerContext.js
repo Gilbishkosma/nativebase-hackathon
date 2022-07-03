@@ -3,7 +3,7 @@ const PlayerContext = React.createContext();
 
 const defaultPlayerState = {
   name: "",
-  score: "",
+  score: 0,
   hasLost: false,
   lifeCount: 3,
 };
@@ -73,6 +73,10 @@ function PlayerReducer(state, action) {
       };
       return { ...state, players: updatedPlayer };
     }
+    case "setCurrentPlayer":{
+      const {currentPlayer} = payload;
+      return {...state,currentPlayer}
+    }
     default: {
       throw new Error(`Unhandled action type: ${type}`);
     }
@@ -82,6 +86,7 @@ function PlayerReducer(state, action) {
 const initialState = {
   playerCount: 2,
   players: twoPlayers,
+  currentPlayer:'player1'
 };
 
 function PlayerProvider({ children }) {

@@ -3,7 +3,9 @@ import { Text, Box, Button,VStack, Spacer,ScrollView } from "native-base"
 import { usePlayer } from "../../../contexts/PlayerContext"
 import { actionCreator } from "../../../utils";
 import PlayerNameInput from "./PlayerNameInput";
-import NavBar from '../../NavBar'
+import NavBar from "../../NavBar";
+import ScoreBoard from "../../ScoreBoard";
+
 
 const AddPlayerNamesScreen = ({navigation}) => {
     const {state,dispatch} = usePlayer();
@@ -14,6 +16,8 @@ const AddPlayerNamesScreen = ({navigation}) => {
             break;
         }
     }
+  }
+
 
     const playerInputs = React.useMemo(() => {
         const players = state.playerCount == 2 ? ['player1','player2'] : ['player1','player2','player3']
@@ -46,4 +50,4 @@ const AddPlayerNamesScreen = ({navigation}) => {
         </>
 }
 
-export default AddPlayerNamesScreen
+export default AddPlayerNamesScreen;

@@ -4,13 +4,15 @@ A simple word phrase guessing game, to test your word knowledge between you and 
 
 ## Rules: How to play the Game - 
 
-1. Fork it!
-2. Create your feature branch: `git checkout -b my-new-feature`
-3. Commit your changes: `git commit -am 'Add some feature'`
-4. Push to the branch: `git push origin my-new-feature`
-5. Submit a pull request :D
+1. This can be played with two players.
+2. The first player will have to write any random word and if the word is correct, he/she will get a point
+3. The second player will have to write a word whose first letter should be the last letter of the word which the first player has written
+4. The same loop will go on till one of the player writes three incorrect words
+5. All the best to beat your friend on Word Fight Game.
 
 ## Snippets
+
+![snippet](https://github.com/Gilbishkosma/nativebase-hackathon/blob/main/assets/snip.png)
 
 ## Contributors - Team Octo
 

@@ -30,3 +30,4 @@ A simple word phrase guessing game, to test your word knowledge between you and 
 3. Adding more helpful massages.
 4. Implementing online play.
 5. Making UI smooth and more users friendly.
+6. Add Levels of difficulty.

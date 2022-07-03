@@ -23,3 +23,10 @@ A simple word phrase guessing game, to test your word knowledge between you and 
 1. <a href="https://ineuron.ai/">Ineuron</a>
 2. <a href="https://geekyants.com/">Geekyants</a>
 3. <a href="https://nativebase.io/" >NativeBase</a>
+
+## Possible update/work--
+1. Refractoring of code.
+2. Allowing more than two users at a time.
+3. Adding more helpful massages.
+4. Implementing online play.
+5. Making UI smooth and more users friendly.

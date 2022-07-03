@@ -15,6 +15,9 @@ A simple word phrase guessing game, to test your word knowledge between you and 
 ![snippet](https://github.com/Gilbishkosma/nativebase-hackathon/blob/main/assets/snip.png)
 
 ## Contributors - Team Octo
+<a href="https://github.com/GilbishKosma"><img src="https://avatars.githubusercontent.com/u/35146877?v=4" title="gilbishKosma" width="80" height="80"></a>
+<a href="https://github.com/MTouthang"><img src="https://avatars.githubusercontent.com/u/53576865?v=4" title="Mtouthang" width="80" height="80"></a>
+<a href="https://github.com/dt1702281"><img src="https://avatars.githubusercontent.com/u/55850598?v=4" title="deepak" width="80" height="80"></a>
 
 ## Credits  - NativeBase Hackathon4.0
 1. Ineuron

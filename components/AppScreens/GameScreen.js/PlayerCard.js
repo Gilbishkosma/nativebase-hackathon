@@ -54,8 +54,6 @@ const PlayerCard = ({playerKey,playerData,setPlayerData,setResetTimer,interval})
             life = life - 1
         }
         setPlayerData(data => ({...data,[data[playerKey].next]:({...(data[data[playerKey].next]),isSubmitted:false,isCurrent:true,word:data[playerKey].word.charAt(data[playerKey].word.length -1)}),[playerKey]:({...data[playerKey],isSubmitted:true,isCurrent:false,score:score,life:life})}))
-        console.log(playerData[playerKey].next)
-        // document.getElementById(playerData[playerKey].next).focus()
     }
 
     return <Box flex="0.4" style={{width:'100%'}} maxWidth={"sm"} bg={displayTimer ? "pink.50" : 'white'} _dark={{bg:displayTimer ? "coolGray.500" : "coolGray.400"}} mt="2" borderRadius={"md"} borderColor="black" borderWidth={displayTimer ? '0.5' : '0'}>

@@ -19,7 +19,7 @@ A simple word phrase guessing game, to test your word knowledge between you and 
 <a href="https://github.com/MTouthang"><img src="https://avatars.githubusercontent.com/u/53576865?v=4" title="Mtouthang" width="80" height="80"></a>
 <a href="https://github.com/dt1702281"><img src="https://avatars.githubusercontent.com/u/55850598?v=4" title="deepak" width="80" height="80"></a>
 
-## Credits  - NativeBase Hackathon4.0
-1. Ineuron
-2. GeekyAnts
-3. React NativeBase
+## Credits  - HackWithNativeBase
+1. <a href="https://ineuron.ai/">Ineuron</a>
+2. <a href="https://geekyants.com/">Geekyants</a>
+3. <a href="https://nativebase.io/" >NativeBase</a>

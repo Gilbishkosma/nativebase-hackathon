@@ -25,7 +25,7 @@ function SelectPlayerScreen({ navigation }) {
   };
   return (
     <>
-      <NavBar />
+      <NavBar/>
       <Center
         safeAreaBottom
         _dark={{ bg: "blueGray.900" }}
@@ -54,7 +54,11 @@ function SelectPlayerScreen({ navigation }) {
 
 function LinkButton({ title, onClick }) {
   return (
-    <Button variant="outline" colorScheme="secondary" onPress={onClick}>
+    <Button variant="outline" colorScheme="secondary" onPress={onClick} _dark={{
+      _text:{
+        color:'white'
+      }
+    }}>
       {title}
     </Button>
   );

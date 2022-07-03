@@ -3,11 +3,13 @@ import { Button,VStack, ScrollView, Text } from "native-base";
 import { usePlayer } from "../../../contexts/PlayerContext";
 import PlayerCard from "./PlayerCard";
 import NavBar from '../../NavBar';
-import {actionCreator} from '../../../utils'
+import ScoreBoard from '../../ScoreBoard';
 
-const GameScreen = () => {
+const GameScreen = ({navigation}) => {
     const {state,dispatch} = usePlayer();
     const [resetTimer,setResetTimer] = useState(false);
+    const [showModel, setShowModel] = useState(false);
+    const [winner,setWinner] = useState('');
 
     const defaultValues = {
         word:"",
@@ -20,38 +22,32 @@ const GameScreen = () => {
 
     const twoPlayers = {
         player1 : {...defaultValues,isCurrent:true,next:'player2'},
-        player2 : {...defaultValues,next: state.playerCount == 2 ? 'player1' : 'player3'}
+        player2 : {...defaultValues,next:'player1'}
     }
-    const threePlayers = {
-        ...twoPlayers,
-        player3: {...defaultValues,next:'player1'}
-    }
-    const [playerData,setPlayerData] = useState(() => state.playerCount == 2 ? twoPlayers : threePlayers)
+    const [playerData,setPlayerData] = useState(twoPlayers)
 
     const playerInputs = React.useMemo(() => {
-        const players = state.playerCount == 2 ? ['player1','player2'] : ['player1','player2','player3']
-        return players
+        return ['player1','player2']
     },[state.playerCount])
 
 
     useEffect(() => {
         let player1Life = playerData.player1.life 
         let player2Life = playerData.player2.life 
-        let player3Life = playerData?.player3?.life ? playerData.player3.life : 0
         if(state.playerCount == 2 && player2Life == 0){
-            alert('Player 1 Win')
+            setWinner({name:state.players.player1.name,img:state.players.player1.img})
+            setShowModel(true)
         }else if(state.playerCount == 2 && player1Life == 0){
-            alert('Player 2 Win')
-        }else if(player1Life == 0 && player2Life == 0){
-            alert('Player 3 Win')
-        }else if(player1Life == 0 && player3Life == 0){
-            alert('Player 2 Win')
-        }else if(player2Life == 0 && player3Life == 0){
-            alert('Player 1 Win')
+            setWinner({name:state.players.player2.name,img:state.players.player2.img})
+            setShowModel(true)
         }
-    },[playerData.player1.life,playerData.player2.life,playerData?.player3?.life])
+    },[playerData.player1.life,playerData.player2.life])
 
-    return <><NavBar />
+    const onReplay = () => {
+        navigation.navigate('add_name')
+    }
+
+    return <><NavBar title="Game Screen" />
         <ScrollView
             style={{ flex: '0 0 100%' }}
             contentContainerStyle={{
@@ -63,6 +59,7 @@ const GameScreen = () => {
                 height: '100%',
               }}
         >
+            <ScoreBoard showModel={showModel} setShowModel={setShowModel} winner={winner} onReplay={onReplay} />
             <VStack alignItems="center" style={{height: '100%'}}>
             {
             playerInputs.map((key,index) => (

@@ -54,24 +54,24 @@ const PlayerCard = ({playerKey,playerData,setPlayerData,setResetTimer,interval})
         
     }
 
-    return <Box flex="0.5" style={{width:'100%'}} maxWidth={"sm"} bg={displayTimer ? "primary.50" : 'white'} mt="2">
+    return <Box flex="0.4" style={{width:'100%'}} maxWidth={"sm"} bg={displayTimer ? "pink.50" : 'white'} _dark={{bg:displayTimer ? "coolGray.500" : "coolGray.400"}} mt="2" borderRadius={"md"} borderColor="black" borderWidth={displayTimer ? '0.5' : '0'}>
             <Flex flex="1">
                 <HStack alignItems={"center"} justifyContent={"space-between"} px="2" pt="5">
-                    <Flex space="5" flex={0.3} bg={'coolGray.300'} borderRadius={'20px'} pr="10" justifyContent={"space-between"} direction='row' alignItems={"center"}> 
+                    <Flex space="5" flex={0.3} bg={'coolGray.300'} _dark={{bg:'coolGray.700'}} borderRadius={'20px'} pr="10" justifyContent={"space-between"} direction='row' alignItems={"center"}> 
                     <Image size={'xs'} borderRadius="full" bg="primary.200" source={{ uri: state.players[playerKey].img }} alt="Profile Pic" />
                     <Text>{state.players[playerKey].name}</Text> 
                     </Flex>
-                    <Text bg="coolGray.300" borderRadius="full" p="3">{playerData[playerKey].score}</Text>
+                    <Text bg="coolGray.300" _dark={{bg:'coolGray.700'}} borderRadius="2xl" px="5" py="2">{playerData[playerKey].score}</Text>
                 </HStack>
-                <Center height={"100%"}>
-                    {displayTimer && <Text fontWeight={600}>{timer}</Text>}
+                <Center height={"70%"}>
+                    {displayTimer && <Text padding={"3"} borderWidth={"1"} borderRadius="full" fontWeight={600} my="5">{timer}</Text>}
                     <HStack space="2">
-                       <Input minWidth={300} isDisabled={!displayTimer || isSubmitted} placeholder='Enter your Word' focusable={true} onChangeText={handleChangeText} value={playerData[playerKey].word} /> 
+                       <Input minWidth={200} _dark={{borderColor:'white',placeholderTextColor:'white'}} isDisabled={!displayTimer || isSubmitted} placeholder='Enter your Word' focusable={true} onChangeText={handleChangeText} value={playerData[playerKey].word} /> 
                         <Button onPress={handleSubmit} isDisabled={!displayTimer || isSubmitted || playerData[playerKey]?.word?.length <= 3}>Submit</Button>
                     </HStack>
                     
-                    {displayTimer && <Text fontWeight={"light"}>Enter any word(more than 3letters) before time gets out</Text>}
-                    Remaining Chance: {playerData[playerKey].life} 
+                    <Text mt="5" fontWeight={"light"}>Enter any word(more than 3letters) before time gets out</Text>
+                    <Text fontWeight={'bold'} mt="2">Remaining Chance: {playerData[playerKey].life}</Text>
                 </Center>
                 
             </Flex>

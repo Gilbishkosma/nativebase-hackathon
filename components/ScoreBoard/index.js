@@ -1,11 +1,10 @@
 import { Modal, Button, Image, Center, Text, HStack } from "native-base";
-import React, { useState } from "react";
+import React from "react";
 
-const ScoreBoard = () => {
-  const [showModel, setShowModel] = useState(false);
+const ScoreBoard = ({showModel,setShowModel,winner,onReplay}) => {
+  console.log(winner)
   return (
     <>
-      <Button onPress={() => setShowModel(true)}>Button</Button>
       <Modal isOpen={showModel} onClose={() => setShowModel(false)}>
         <Modal.Content maxWidth="400px">
           <Modal.CloseButton />
@@ -15,22 +14,19 @@ const ScoreBoard = () => {
                 size={60}
                 borderRadius={100}
                 source={{
-                  uri: "https://wallpaperaccess.com/full/317501.jpg",
+                  uri: winner?.img ? winner?.img : "https://wallpaperaccess.com/full/317501.jpg",
                 }}
                 alt="Alternate Text"
               />
               <Text pt="4" bold>
-                Hurray ! Deepak WON 🥳
+                Hurray ! {winner?.name ? winner?.name : 'You'} WON 🥳
               </Text>
             </Center>
           </Modal.Header>
           <Modal.Body>
             <HStack space={3} justifyContent="center">
               <Center w="20" rounded="md" shadow={3}>
-                <Button> Replay ? </Button>
-              </Center>
-              <Center w="20" rounded="md" shadow={3}>
-                <Button> Restart !</Button>
+                <Button onPress={onReplay}> Restart ? </Button>
               </Center>
               <Text> </Text>
             </HStack>

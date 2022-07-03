@@ -17,16 +17,12 @@ const AddPlayerNamesScreen = ({ navigation }) => {
   }
 
   const playerInputs = React.useMemo(() => {
-    const players =
-      state.playerCount == 2
-        ? ["player1", "player2"]
-        : ["player1", "player2", "player3"];
-    return players;
+    return ["player1", "player2"];
   }, [state.playerCount]);
 
   return (
     <>
-      <NavBar />
+      <NavBar title="Enter Details" />
       <ScrollView
         style={{ flex: "0 0 100%" }}
         contentContainerStyle={{
@@ -49,12 +45,19 @@ const AddPlayerNamesScreen = ({ navigation }) => {
             />
           ))}
           <Button
-            minWidth={100}
-            mt="2"
-            mb="5"
+            minWidth={200}
+            my="5"
             disabled={isDisabled}
             bg={isDisabled ? "coolGray.300" : "primary.600"}
             onPress={() => navigation.navigate("game_screen")}
+            _dark={{
+              bg: isDisabled ? "coolGray.400" : "coolGray.700"
+            }}
+            _hover={{
+              _dark:{
+                bg:isDisabled ? "coolGray.400" : "coolGray.600"
+              }
+            }}
           >
             Start
           </Button>

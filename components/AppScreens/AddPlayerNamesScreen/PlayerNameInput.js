@@ -9,7 +9,9 @@ const PlayerNameInput = ({ playerKey, dispatch, name, img }) => {
   };
 
   return (
-    <Box flex="0.5" style={{ width: "100%" }} maxWidth={"sm"} bg="white" mt="2">
+    <Box flex="0.4" style={{ width: "100%" }} maxWidth={"sm"} bg="white" _dark={{
+      bg:'coolGray.700'
+    }} mt="2" borderRadius={'md'}>
       <Center p="2" width="100%" height="100%">
         <Image
           size={"md"}
@@ -26,6 +28,10 @@ const PlayerNameInput = ({ playerKey, dispatch, name, img }) => {
           onChangeText={(text) => handleChange(text)}
           value={name}
           w="80%"
+          _dark={{
+            borderColor:'white',
+            placeholderTextColor:'white'
+          }}
         />
       </Center>
     </Box>

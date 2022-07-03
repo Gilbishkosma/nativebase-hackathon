@@ -20,15 +20,6 @@ const twoPlayers = {
   },
 };
 
-// if playerCount is 3
-const threePlayers = {
-  ...twoPlayers,
-  player3: {
-    ...defaultPlayerState,
-    img: "https://doodleipsum.com/100x100/avatar?n=3",
-  },
-};
-
 function PlayerReducer(state, action) {
   const { type, payload } = action;
 
@@ -38,7 +29,7 @@ function PlayerReducer(state, action) {
       return {
         ...state,
         playerCount,
-        players: playerCount === 2 ? twoPlayers : threePlayers,
+        players: twoPlayers,
       };
     }
     case "addName": {

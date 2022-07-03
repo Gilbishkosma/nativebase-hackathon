@@ -10,7 +10,7 @@ const PlayerCard = ({playerKey,playerData,setPlayerData,setResetTimer,interval})
     const {state,dispatch} = usePlayer();
     const displayTimer = playerData[playerKey].isCurrent;
     const isSubmitted = playerData[playerKey].isSubmitted;
-    const [timer,setTimer] = useState(10);
+    const [timer,setTimer] = useState(20);
     console.log({displayTimer,isSubmitted,timer})
     const handleChangeText = (value) => {
         if(value.length > 0){
@@ -19,7 +19,7 @@ const PlayerCard = ({playerKey,playerData,setPlayerData,setResetTimer,interval})
     }
 
     useEffect(() => {
-        let localTimer = 10
+        let localTimer = 20
         let interval = undefined;
         if(playerData[playerKey].isCurrent){
             interval = setInterval(() => { 
@@ -28,7 +28,7 @@ const PlayerCard = ({playerKey,playerData,setPlayerData,setResetTimer,interval})
                 }else{
                     if(localTimer === 0){
                         clearInterval(interval)
-                        setTimer(10)
+                        setTimer(20)
                         setPlayerData(data => ({...data,[data[playerKey].next]:({...(data[data[playerKey].next]),isSubmitted:false,isCurrent:true,word:data[playerKey].word.charAt(data[playerKey].word.length-1)}),[playerKey]:({...data[playerKey],isCurrent:false,life:data[playerKey].life - 1})}))
                     }else{
                         setTimer(localTimer-1)
@@ -66,7 +66,7 @@ const PlayerCard = ({playerKey,playerData,setPlayerData,setResetTimer,interval})
                 <Center height={"100%"}>
                     {displayTimer && <Text fontWeight={600}>{timer}</Text>}
                     <HStack space="2">
-                       <Input isDisabled={!displayTimer || isSubmitted} placeholder='Enter your Word' focusable={true} onChangeText={handleChangeText} value={playerData[playerKey].word} /> 
+                       <Input minWidth={300} isDisabled={!displayTimer || isSubmitted} placeholder='Enter your Word' focusable={true} onChangeText={handleChangeText} value={playerData[playerKey].word} /> 
                         <Button onPress={handleSubmit} isDisabled={!displayTimer || isSubmitted || playerData[playerKey]?.word?.length <= 3}>Submit</Button>
                     </HStack>
                     

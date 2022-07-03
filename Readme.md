@@ -2,7 +2,7 @@
 
 A simple word phrase guessing game, to test your word knowledge between you and your friends i.e Two player game
 
-## Rules - 
+## Rules: How to play the Game - 
 
 1. Fork it!
 2. Create your feature branch: `git checkout -b my-new-feature`

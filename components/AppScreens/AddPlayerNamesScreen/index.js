@@ -49,6 +49,7 @@ const AddPlayerNamesScreen = ({ navigation }) => {
             />
           ))}
           <Button
+            minWidth={100}
             mt="2"
             mb="5"
             disabled={isDisabled}

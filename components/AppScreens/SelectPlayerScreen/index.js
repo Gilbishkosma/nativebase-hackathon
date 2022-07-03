@@ -19,51 +19,32 @@ function SelectPlayerScreen({ navigation }) {
   const { state, dispatch } = usePlayer();
   console.log(state);
   const handleValueChange = (value) => {
-    dispatch(actionCreator("changePlayerCount", { playerCount: parseInt(value) }));
+    dispatch(
+      actionCreator("changePlayerCount", { playerCount: parseInt(value) })
+    );
   };
   return (
     <>
       <NavBar />
       <Center
         safeAreaBottom
-        
         _dark={{ bg: "blueGray.900" }}
         _light={{ bg: "blueGray.50" }}
         px={4}
         flex={1}
       >
-        <Stack space={5} alignItems="center" justifyContent="center" >
+        <Stack space={5} alignItems="center" justifyContent="center">
           <Heading size="lg">Welcome to Word Fight! </Heading>
           <NativeBaseIcon />
 
-          <Text bold fontSize="md">
-            Select Number of Player
-          </Text>
-          <Select
-            shadow={2}
-            accessibilityLabel="Select Number of Player?"
-            placeholder="No. of Player"
-            _selectedItem={{ bg: "teal.600", endIcon: <CheckIcon /> }}
-            _light={{
-              bg: "coolGray.100",
-            }}
-            _dark={{
-              bg: "coolGray.800",
-            }}
-            minWidth="200"
-            defaultValue={state?.playerCount ? state.playerCount : 2 }
-            selectedValue={state?.playerCount ? state.playerCount : 2 }
-            onValueChange={handleValueChange}
-          >
-            <Select.Item shadow={2} label="2" value={2} />
-            <Select.Item shadow={2} label="3" value={3} />
-          </Select>
           <LinkButton
-            title="Next"
+            title="Start"
             onClick={() => navigation.navigate("add_name")}
           />
           <Box mt="auto">
-            <Text fontWeight="800" color="#737373"> Team Octo </Text>
+            <Text fontWeight="800" color="#737373">
+              Team Octo
+            </Text>
           </Box>
         </Stack>
       </Center>

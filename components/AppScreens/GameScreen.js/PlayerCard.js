@@ -1,11 +1,11 @@
 import {Box,Flex,HStack,Text,Image, Center, Input, Button} from 'native-base'
 import { useEffect, useState } from 'react';
 import { usePlayer } from '../../../contexts/PlayerContext'
-import checkIfWord from 'check-if-word';
+import wordExist from 'word-exists';
 
 
 
-const wordCheck = checkIfWord('en')
+// const wordCheck = checkIfWord('en')
 const PlayerCard = ({playerKey,playerData,setPlayerData,setResetTimer,interval}) => {
     const {state,dispatch} = usePlayer();
     const displayTimer = playerData[playerKey].isCurrent;
@@ -45,7 +45,7 @@ const PlayerCard = ({playerKey,playerData,setPlayerData,setResetTimer,interval})
     const handleSubmit = () => {
         let score = playerData[playerKey].score;
         let life = playerData[playerKey].life;
-        if(wordCheck.check(playerData[playerKey].word)){
+        if(wordExist(playerData[playerKey].word)){
             score = score + 1
         }else{
             life = life - 1
@@ -58,10 +58,10 @@ const PlayerCard = ({playerKey,playerData,setPlayerData,setResetTimer,interval})
             <Flex flex="1">
                 <HStack alignItems={"center"} justifyContent={"space-between"} px="2" pt="5">
                     <Flex space="5" flex={0.3} bg={'coolGray.300'} borderRadius={'20px'} pr="10" justifyContent={"space-between"} direction='row' alignItems={"center"}> 
-                    <Image size={'xs'} borderRadius={"50%"} bg="primary.200" source={{ uri: state.players[playerKey].img }} alt="Profile Pic" />
+                    <Image size={'xs'} borderRadius="full" bg="primary.200" source={{ uri: state.players[playerKey].img }} alt="Profile Pic" />
                     <Text>{state.players[playerKey].name}</Text> 
                     </Flex>
-                    <Text bg="coolGray.300" borderRadius={"50%"} p="3">{playerData[playerKey].score}</Text>
+                    <Text bg="coolGray.300" borderRadius="full" p="3">{playerData[playerKey].score}</Text>
                 </HStack>
                 <Center height={"100%"}>
                     {displayTimer && <Text fontWeight={600}>{timer}</Text>}
